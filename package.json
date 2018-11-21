@@ -9,7 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-loader": "^7.1.5",
     "vue": "^2.5.17"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-core": "^6.26.3"
+  }
 }
