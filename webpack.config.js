@@ -1,7 +1,9 @@
+const path = require('path');
+
 module.exports = {
-  entry: __dirname + "/helloworld/helloworld.js",
+  entry: "./helloworld/helloworld.js",
   output: {
-    path: __dirname + "/public",
+    path: path.resolve(__dirname, 'public'),
     filename: "bundle.js"
   },
   mode: "development"
