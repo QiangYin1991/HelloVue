@@ -6,5 +6,10 @@ module.exports = {
     path: path.resolve(__dirname, 'public'),
     filename: "bundle.js"
   },
-  mode: "development"
+  mode: "development",
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+    }
+  }
 }
