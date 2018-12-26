@@ -6,7 +6,26 @@
     </head>
     <body>
         <div id="app">
-            
+            {{ date }}
         </div>
+        <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    date: new Date()
+                },
+                mounted: function () {
+                    this.timer = setInterval(() => {
+                        this.date = new Date();
+                    }, 1000);
+                },
+                beforeDestroy: function () {
+                    if (this.timer) {
+                        clearInterval(this.timer);
+                    }
+                }
+            });
+        </script>
     </body>
 </html>
