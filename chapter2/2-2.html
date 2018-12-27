@@ -7,18 +7,20 @@
   <body>
     <div id="app">
       <p v-if="show">这个标签可以隐藏</p>
-      <button v-on:click="handleClose">点击隐藏或显示标签</button>
+      <button v-on:click="handleClose">{{ buttonText }}</button>
     </div>
     <script src="../vue.min.js"></script>
     <script>
       const app = new Vue({
         el: '#app',
         data: {
-          show: true
+          show: true,
+          buttonText: '点击隐藏标签'
         },
         methods: {
           handleClose: function () {
             this.show = !this.show;
+            this.buttonText = this.show ? '点击隐藏标签' : '点击显示标签';
           }
         }
       });
