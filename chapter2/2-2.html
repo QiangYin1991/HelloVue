@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue示例</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="show">这个标签可以隐藏</p>
+      <button v-on:click="handleClose">点击隐藏或显示标签</button>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          show: true
+        },
+        methods: {
+          handleClose: function () {
+            this.show = !this.show;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
