@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Vue示例</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul>
+                <template v-for="book in books">
+                    <li>书名：{{book.name}}</li>
+                    <li>作者：{{book.author}}</li>
+                </template>
+            </ul>
+            <p>
+                <span v-for="value in user">{{value}}</span>
+                <span v-for="n in 10"> {{ n }}</span>
+            </p>
+        </div>
+        <script src="../vue.min.js"></script>
+        <script>
+            const app = new Vue({
+                el: '#app',
+                data: {
+                    books: [
+                        {name: '<Vue.js>', author: 'zhangsan'},
+                        {name: '<angular.js>', author: 'lisi'},
+                        {name: '<react.js>', author: 'wangwu'}
+                    ],
+                    user: {
+                        name: 'zhangzhang',
+                        sex: 'male',
+                        age: 16
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
