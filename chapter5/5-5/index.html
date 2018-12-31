@@ -19,7 +19,19 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                        <tr v-for="(item, index) in list">
+                            <td>{{ index + 1 }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.price }}</td>
+                            <td>
+                                <button @click="handleReduce(index)" :disabled="item.count === 1">-</button>
+                                {{ item.count }}
+                                <button @click="handleAdd(index)">+</button>
+                            </td>
+                            <td>
+                                <button @click="handleRemove(index)">移除</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <div>总价：￥ {{ totalPrice }}</div>
@@ -27,6 +39,6 @@
             <div v-else>购物车为空</div>
         </div>
         <script src="../../vue.min.js"></script>
-        <script src="./index.html"></script>
+        <script src="./index.js"></script>
     </body>
 </html>
