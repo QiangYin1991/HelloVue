@@ -19,6 +19,20 @@
             <label for="css">CSS</label>
             <br>
             <p>您的选择是：{{ picked }}</p>
+            <br><br>
+            <input type="text" @input="handleInput" placeholder="输入...">
+            <p>输入的内容是：{{ message }}</p>
+            <br/>
+            <input type="checkbox" v-model="checked" value="html" id="html">
+            <label for="html">HTML</label>
+            <br>
+            <input type="checkbox" v-model="checked" value="js" id="js">
+            <label for="js">JavaScript</label>
+            <br>
+            <input type="checkbox" v-model="checked" value="css" id="css">
+            <label for="css">CSS</label>
+            <br>
+            <p>您的选择是：{{ checked }}</p>
         </div>
         <script src="../vue.min.js"></script>
         <script>
@@ -26,7 +40,8 @@
                 el: '#app',
                 data: {
                     message: '',
-                    picked: 'js'
+                    picked: 'js',
+                    checked: []
                 },
                 methods: {
                     handleInput: function (e) {
