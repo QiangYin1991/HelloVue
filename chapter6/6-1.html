@@ -8,13 +8,25 @@
         <div id="app">
             <input type="text" @input="handleInput" placeholder="输入...">
             <p>输入的内容是：{{ message }}</p>
+            <br/>
+            <input type="radio" v-model="picked" value="html" id="html">
+            <label for="html">HTML</label>
+            <br>
+            <input type="radio" v-model="picked" value="js" id="js">
+            <label for="js">JavaScript</label>
+            <br>
+            <input type="radio" v-model="picked" value="css" id="css">
+            <label for="css">CSS</label>
+            <br>
+            <p>您的选择是：{{ picked }}</p>
         </div>
         <script src="../vue.min.js"></script>
         <script>
             const app = new Vue({
                 el: '#app',
                 data: {
-                    message: ''
+                    message: '',
+                    picked: 'js'
                 },
                 methods: {
                     handleInput: function (e) {
