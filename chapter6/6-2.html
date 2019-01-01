@@ -11,7 +11,8 @@
             <p>picked: {{ picked }}</p>
             <p>value: {{ value }}</p>
             <br>
-            <input type="checkbox" v-model="toggle" :true-value="value1" :false-value="value2">
+            <input type="checkbox" v-model="toggle" value="def" :true-value="value1" :false-value="value2">
+            <input type="checkbox" v-model="toggle" value="abc" :true-value="value3" :false-value="value4">
             <p>toggle: {{ toggle }}</p>
             <p>value1: {{ value1 }}</p>
             <p>value2: {{ value2 }}</p>
@@ -23,9 +24,11 @@
                 data: {
                     picked: false,
                     value: 123,
-                    toggle: false,
+                    toggle: [],
                     value1: 'a',
-                    value2: 'b'
+                    value2: 'b',
+                    value3: 'c',
+                    value4: 'd'
                 }
             });
         </script>
