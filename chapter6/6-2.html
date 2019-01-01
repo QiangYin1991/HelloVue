@@ -8,8 +8,13 @@
         <div id="app">
             <input type="radio" v-model="picked" :value="value">
             <label>单选按钮</label>
-            <p>{{ picked }}</p>
-            <p>{{ value }}</p>
+            <p>picked: {{ picked }}</p>
+            <p>value: {{ value }}</p>
+            <br>
+            <input type="checkbox" v-model="toggle" :true-value="value1" :false-value="value2">
+            <p>toggle: {{ toggle }}</p>
+            <p>value1: {{ value1 }}</p>
+            <p>value2: {{ value2 }}</p>
         </div>
         <script src="../vue.min.js"></script>
         <script>
@@ -17,7 +22,10 @@
                 el: '#app',
                 data: {
                     picked: false,
-                    value: 123
+                    value: 123,
+                    toggle: false,
+                    value1: 'a',
+                    value2: 'b'
                 }
             });
         </script>
