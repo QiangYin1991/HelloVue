@@ -7,6 +7,7 @@
     <body>
         <div id="app">
             <my-component></my-component>
+            <second-component></second-component>
         </div>
         <script src="../vue.min.js"></script>
         <script>
@@ -14,8 +15,15 @@
                 template: '<div>这里是组件内容</div>'
             });
 
+            const secondComponent = {
+                template: '<div>另一个组件内容</div>'
+            };
+
             const app = new Vue({
-                el: '#app'
+                el: '#app',
+                components: {
+                    'second-component' : secondComponent
+                }
             });
         </script>
     </body>
