@@ -33,6 +33,19 @@
             <label for="css">CSS</label>
             <br>
             <p>您的选择是：{{ checked }}</p>
+            <br><br>
+            <select v-model="selected">
+                <option>HTML</option>
+                <option>JavaScript</option>
+                <option>CSS</option>
+            </select>
+            <p>您的选择是：{{ selected }}</p>
+            <select v-model="selects" multiple>
+                <option>HTML</option>
+                <option value="js">JavaScript</option>
+                <option>CSS</option>
+            </select>
+            <p>您的选择是：{{ selects }}</p>
         </div>
         <script src="../vue.min.js"></script>
         <script>
@@ -41,7 +54,9 @@
                 data: {
                     message: '',
                     picked: 'js',
-                    checked: []
+                    checked: [],
+                    selected: 'HTML',
+                    selects: ['HTML', 'js']
                 },
                 methods: {
                     handleInput: function (e) {
