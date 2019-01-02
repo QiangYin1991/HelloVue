@@ -8,11 +8,17 @@
         <div id="app">
             <my-component></my-component>
             <second-component></second-component>
+            <my-component></my-component>
         </div>
         <script src="../vue.min.js"></script>
         <script>
             Vue.component('my-component', {
-                template: '<div>这里是组件内容</div>'
+                template: `<div>这里是组件内容<button @click='counter++'>{{counter}}</button></div>`,
+                data: function () {
+                    return {
+                        counter : 0
+                    }
+                }
             });
 
             const secondComponent = {
