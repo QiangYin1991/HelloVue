@@ -7,13 +7,20 @@
     <body>
         <div id="app">
             <input type="text" v-model="parentMessage">
-            <my-component :message="parentMessage"></my-component>
+            <my-component :message="parentMessage" :width="200"></my-component>
         </div>
         <script src="../vue.min.js"></script>
         <script>
             Vue.component('my-component', {
-                props: ['message'],
-                template: '<div>{{message}}</div>'
+                props: ['message', 'width'],
+                template: '<div :style="style">{{message}}</div>',
+                computed: {
+                    style: function () {
+                        return {
+                            width : this.width + 'px'
+                        }
+                    }
+                }
             });
             const app = new Vue({
                 el: '#app',
