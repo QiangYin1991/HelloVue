@@ -6,7 +6,8 @@
     </head>
     <body>
         <div id="app">
-            <my-component message="来自父组件的数据"></my-component>
+            <input type="text" v-model="parentMessage">
+            <my-component :message="parentMessage"></my-component>
         </div>
         <script src="../vue.min.js"></script>
         <script>
@@ -15,7 +16,10 @@
                 template: '<div>{{message}}</div>'
             });
             const app = new Vue({
-                el: '#app'
+                el: '#app',
+                data: {
+                    parentMessage: ''
+                }
             });
         </script>
     </body>
