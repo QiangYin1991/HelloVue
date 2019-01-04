@@ -5,7 +5,10 @@
         <title>Vue示例</title>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <p>总数：{{ total }}</p>
+            <my-component @increase="handleGetTotal" @reduce="handleGetTotal"></my-component>
+        </div>
         <script src="../vue.min.js"></script>
         <script>
             Vue.component('my-component', {
@@ -35,6 +38,11 @@
                 el: '#app',
                 data: {
                     total: 0
+                },
+                methods: {
+                    handleGetTotal: function (total) {
+                        this.total = total;
+                    }
                 }
             });
         </script>
