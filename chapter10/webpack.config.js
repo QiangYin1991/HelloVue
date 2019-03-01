@@ -5,10 +5,11 @@ const config = {
     main: './main.js'
   },
   output: {
-    path: path.join(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
     filename: 'main.js'
-  }
+  },
+  mode: "development",
 };
 
 module.exports = config;
