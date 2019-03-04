@@ -10,6 +10,17 @@ const config = {
     filename: 'main.js'
   },
   mode: "development",
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          "css-loader"
+        ]
+      }
+    ]
+  }
 };
 
 module.exports = config;
