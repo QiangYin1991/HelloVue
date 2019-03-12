@@ -2,38 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>value双向绑定</title>
+    <title>非父子组件通信</title>
   </head>
   <body>
     <div id="app">
-      <p>总数：{{ total }}</p>
-      <my-component v-model="total"></my-component>
-      <button @click="handleReduce">-1</button>
+      {{ message }}
+      <component-a></component-a>
     </div>
     <script src="../vue.min.js"></script>
     <script>
-      Vue.component('myComponent', {
-        props: ['value'],
+      const bus = new Vue();
+      Vue.component('componentA', {
         template: '\
-          <input :value="value" @input="updateValue"></input> \
+          <button @click="handleEvent">传递事件</button> \
         ',
         methods: {
-          updateValue: function (event) {
-            this.$emit('input', event.target.value);
+          handleEvent: function () {
+            bus.$emit('on-message', '来自组件component-a的内容');
           }
         },
       });
-
       const app = new Vue({
         el: '#app',
         data: {
-          total: 0
+          message: ''
         },
-        methods: {
-          handleReduce: function () {
-            this.total--;
-          }
-        }
+        mounted() {
+          const _this = this;
+          bus.$on('on-message', function (msg) {
+            _this.message = msg;
+          });
+        },
       });
     </script>
   </body>
