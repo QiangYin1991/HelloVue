@@ -5,6 +5,9 @@ Vue.component('inputNumber', {
     <button @click="handleDown" :disabled="currentValue <= min">-</button> \
     <button @click="handleUp" :disabled="currentValue >= max">+</button> \
   </div>',
+  model: {
+    prop: 'value1'
+  },
   props: {
     max: {
       type: Number,
@@ -14,14 +17,14 @@ Vue.component('inputNumber', {
       type: Number,
       default: -Infinity
     },
-    value: {
+    value1: {
       type: Number,
       default: 0
     }
   },
   data() {
     return {
-      currentValue: this.value
+      currentValue: this.value1
     }
   },
   watch: {
@@ -65,7 +68,7 @@ Vue.component('inputNumber', {
     }
   },
   mounted: function() {
-    this.updateValue(this.value);
+    this.updateValue(this.value1);
   }
 });
 
