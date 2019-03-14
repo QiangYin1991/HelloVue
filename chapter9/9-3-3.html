@@ -8,6 +8,7 @@
     <div id="app">
       <ele :show="show"></ele>
       <button @click="show = !show">切换 show</button>
+      <m-list :list="list"></m-list>
     </div>
     <script src="../vue.min.js"></script>
     <script>
@@ -26,10 +27,31 @@
           }
         }
       });
+
+      Vue.component('mList', {
+        render(h) {
+          let nodes = [];
+          for (let i = 0; i < this.list.length; i++) {
+            nodes.push(h('p', this.list[i]));
+          }
+          return h('div', nodes);
+        },
+        props: {
+          list: {
+            type: Array
+          }
+        }
+      });
+
       const app = new Vue({
         el: '#app',
         data: {
-          show: false
+          show: false,
+          list: [
+            '《Vue.js实战》',
+            '《JavaScript高级程序设计》',
+            '《JavaScript语言精粹》'
+          ]
         }
       });
     </script>
