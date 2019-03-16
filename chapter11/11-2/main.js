@@ -45,7 +45,8 @@ router.afterEach((to, from, next) => {
 
 const store = new Vuex.Store({
   state: {
-    count: 0
+    count: 0,
+    list: [1, 5, 8, 10, 30, 50]
   },
   mutations: {
     increment (state, params) {
@@ -53,6 +54,14 @@ const store = new Vuex.Store({
     },
     decrease (state, params) {
       state.count -= params.count;
+    }
+  },
+  getters: {
+    filteredList: state => {
+      return state.list.filter(item => item < 10);
+    },
+    listCount: (state, getters) => {
+      return getters.filteredList.length;
     }
   }
 });

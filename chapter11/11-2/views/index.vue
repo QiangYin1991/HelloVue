@@ -5,6 +5,8 @@
     <p>count: {{ count }}</p>
     <button @click="handleIncrement">+1</button>
     <button @click="handleDecrease">-1</button>
+    <div>list: {{ list }}</div>
+    <div>listCount: {{ listCount }}</div>
   </div>
 </template>
 <script>
@@ -12,6 +14,12 @@ export default {
   computed: {
     count () {
       return this.$store.state.count;
+    },
+    list () {
+      return this.$store.getters.filteredList;
+    },
+    listCount () {
+      return this.$store.getters.listCount;
     }
   },
   methods: {
