@@ -6,6 +6,8 @@
     <button @click="handleIncrement">+1</button>
     <button @click="handleDecrease">-1</button>
     <button @click="handleActionIncrement">action +1</button>
+    <button @click="handleAsyncIncrement">async +1</button>
+    <button @click="handleAsyncDecrease">mutations async --</button>
     <div>list: {{ list }}</div>
     <div>listCount: {{ listCount }}</div>
   </div>
@@ -40,6 +42,14 @@ export default {
     },
     handleActionIncrement () {
       this.$store.dispatch('increment');
+    },
+    handleAsyncIncrement () {
+      this.$store.dispatch('asyncIncrement').then(() => {
+        console.log(this.$store.state.count);
+      })
+    },
+    handleAsyncDecrease () {
+      this.$store.commit('asyncDecrease');
     }
   },
 }

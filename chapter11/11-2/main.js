@@ -54,6 +54,14 @@ const store = new Vuex.Store({
     },
     decrease (state, params) {
       state.count -= params.count;
+    },
+    asyncDecrease (state) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          state.count--;
+          resolve();
+        }, 1000);
+      });
     }
   },
   getters: {
@@ -67,6 +75,14 @@ const store = new Vuex.Store({
   actions: {
     increment (context) {
       context.commit('increment', {count: 1});
+    },
+    asyncIncrement (context) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          context.commit('increment', {count: 2});
+          resolve();
+        }, 1000);
+      });
     }
   }
 });
