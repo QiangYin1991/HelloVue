@@ -16,10 +16,18 @@ export default {
   },
   methods: {
     handleIncrement () {
-      this.$store.commit('increment');
+      this.$store.commit({
+        type: 'increment',
+        count: 10
+        }
+      );
     },
     handleDecrease () {
-      this.$store.commit('decrease');
+      this.$store.commit({
+        type: 'decrease',
+        count: 5
+        }
+      );
     }
   },
 }

@@ -48,11 +48,11 @@ const store = new Vuex.Store({
     count: 0
   },
   mutations: {
-    increment (state) {
-      state.count++;
+    increment (state, params) {
+      state.count += params.count;
     },
-    decrease (state) {
-      state.count--;
+    decrease (state, params) {
+      state.count -= params.count;
     }
   }
 });
