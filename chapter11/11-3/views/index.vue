@@ -10,10 +10,30 @@
     <button @click="handleAsyncDecrease">mutations async --</button>
     <div>list: {{ list }}</div>
     <div>listCount: {{ listCount }}</div>
+    <div>
+      随机增加：
+      <Counter :number="number"></Counter>
+    </div>
   </div>
 </template>
 <script>
+import Counter from './counter.vue';
+
 export default {
+  components: {
+    Counter
+  },
+  data () {
+    return {
+      number: 0
+    }
+  },
+  created () {
+    this.$bus.on('add', this.handleAddRandom);
+  },
+  beforeDestroy() {
+    this.$bus.off('add', this.handleAddRandom);
+  },
   computed: {
     count () {
       return this.$store.state.count;
@@ -26,6 +46,9 @@ export default {
     }
   },
   methods: {
+    handleAddRandom (num) {
+      this.number += num;
+    },
     handleIncrement () {
       this.$store.commit({
         type: 'increment',
