@@ -63,6 +63,11 @@ const store = new Vuex.Store({
     listCount: (state, getters) => {
       return getters.filteredList.length;
     }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment', {count: 1});
+    }
   }
 });
 

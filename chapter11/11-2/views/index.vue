@@ -5,6 +5,7 @@
     <p>count: {{ count }}</p>
     <button @click="handleIncrement">+1</button>
     <button @click="handleDecrease">-1</button>
+    <button @click="handleActionIncrement">action +1</button>
     <div>list: {{ list }}</div>
     <div>listCount: {{ listCount }}</div>
   </div>
@@ -36,6 +37,9 @@ export default {
         count: 5
         }
       );
+    },
+    handleActionIncrement () {
+      this.$store.dispatch('increment');
     }
   },
 }
