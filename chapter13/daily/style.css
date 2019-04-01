@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #657180;
+    font-size: 16px;
+}
+
+.daily-menu {
+    width: 150px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    background: #f5f7f9;
+}
+
+.daily-menu-item:hover {
+    background: #e3e8ee;
+}
+
+.daily-menu-item:on {
+    border-right: 2px solid #3399ff;
+}
+
+.daily-list {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 150px;
+    overflow: auto;
+    border-right: 1px solid #d7dde4;
+}
+
+.daily-item:hover {
+    background: #e3e8ee;
+}
+
+.daily-article {
+    margin-left: 450px;
+    padding: 20px;
+}
