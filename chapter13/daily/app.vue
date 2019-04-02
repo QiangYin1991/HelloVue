@@ -8,7 +8,8 @@
                 @click="showThemes = !showThemes">主题日报</div>
            <ul v-show="showThemes">
                <li v-for="item in themes">
-                   <a :class="{ on: item.id === themeId && type === 'daily'}">{{ item.name }}</a>
+                   <a :class="{ on: item.id === themeId && type === 'daily'}"
+                      @click="handleToTheme(item.id)">{{ item.name }}</a>
                </li>
            </ul>
        </div>
@@ -27,13 +28,22 @@
                 themes: [],
                 showThemes: false,
                 type: 'recommend',
-                themeId: 0
+                themeId: 0,
+                list: [],
             }
         },
         methods: {
             getThemes () {
                 $.ajax.get('themes').then(res => {
                     this.themes = res.others;
+                });
+            },
+            handleToTheme (id) {
+                this.type = 'daily';
+                this.themeId = id;
+                this.list = [];
+                $.ajax.get('theme/' + id).then(res => {
+                    this.list = res.stories.filter(item => item.type !== 1);
                 });
             }
         },
