@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue示例</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="show">这个标签可以隐藏</p>
+      <a v-bind:href="url">{{ refText }}</a>
+      <button v-on:click="handleClose">{{ buttonText }}</button>
+      <button v-on:click="switchUrl">{{ buttonUrl }}</button>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          show: true,
+          buttonText: '点击隐藏标签',
+          url: 'http://www.baidu.com',
+          refText: '百度的链接',
+          buttonUrl: '点击切换搜狐'
+        },
+        methods: {
+          handleClose: function () {
+            this.show = !this.show;
+            this.buttonText = this.show ? '点击隐藏标签' : '点击显示标签';
+          },
+          switchUrl: function () {
+            if (this.buttonUrl === '点击切换搜狐') {
+              this.url = 'http://www.sohu.com';
+              this.buttonUrl = '点击切换百度';
+              this.refText = '搜狐的链接';
+            } else {
+              this.url = 'http://www.baidu.com';
+              this.buttonUrl = '点击切换搜狐';
+              this.refText = '百度的链接';
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

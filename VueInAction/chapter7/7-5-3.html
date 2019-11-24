@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>动态组件</title>
+  </head>
+  <body>
+    <div id="app">
+      <component :is="currentView"></component>
+      <button @click="handleChangeView('A')">切换到A</button>
+      <button @click="handleChangeView('B')">切换到B</button>
+      <button @click="handleChangeView('C')">切换到C</button>
+      <button @click="handleChangeView()">切换到D</button>
+    </div>
+    <script src="../vue.min.js"></script>
+    <script>
+      const Home = {
+        template: '<p>Welcome home!</p>'
+      };
+      const app = new Vue({
+        el: '#app',
+        data: {
+          currentView: 'comA'
+        },
+        components: {
+          comA: {
+            template: '<div>组件A</div>'
+          },
+          comB: {
+            template: '<div>组件B</div>'
+          },
+          comC: {
+            template: '<div>组件C</div>'
+          }
+        },
+        methods: {
+          handleChangeView: function (component) {
+            if(component) {
+              this.currentView = 'com' + component;
+            } else {
+              this.currentView = Home;
+            }
+          }
+        },
+      });
+    </script>
+  </body>
+</html>

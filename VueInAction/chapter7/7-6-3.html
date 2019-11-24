@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>手动挂载实例</title>
+  </head>
+  <body>
+    <div id="mount-div">
+    </div>
+    <script src="../vue.min.js"></script>
+    <script>
+      const MyComponent = Vue.extend({
+        template: '<div>Hello: {{ name }}</div>',
+        data() {
+          return {
+            name: 'haha'
+          }
+        },
+      });
+
+      new MyComponent().$mount('#mount-div');
+    </script>
+  </body>
+</html>
