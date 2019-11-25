@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-bind.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+    </head>
+    <body>
+        <h1>v-bind</h1>
+        <hr>
+        <div id="app">
+            <a :href="webUrl" target="_blank">链接1</a>
+            <a :href="webUrl2" target="_self">链接2</a>
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    webUrl:"http://www.baidu.com",
+                    webUrl2:"http://tv.sohu.com"
+                }
+            });
+        </script>
+    </body>
+</html>
