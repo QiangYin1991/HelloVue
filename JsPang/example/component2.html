@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Component2.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+    </head>
+    <body>
+        <h1>Component2</h1>
+        <hr>
+        <div id="app">
+            <lisi :here="message"></lisi>
+        </div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'China'
+                },
+                components: {
+                    "lisi":{
+                        template: `
+                            <div style="color:red">lisi来自{{here}}</div>
+                        `,
+                        props:['here']
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
