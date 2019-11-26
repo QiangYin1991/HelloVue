@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Component3.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+    </head>
+    <body>
+        <h1>Component3</h1>
+        <hr>
+        <div id="app">
+            <zhangsan></zhangsan>
+        </div>
+        <script type="text/javascript">
+            var cityComponent = {
+                template:`<div style="color:green;">SiChuan of China!</div>`
+            }
+            
+            var zsComponent = {
+                template:`
+                <div>
+                    <p>ZhangSan from China</p>
+                    <city></city>
+                </div>
+                `,
+                components:{
+                    "city":cityComponent
+                }
+            }
+
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'China'
+                },
+                components: {
+                    "zhangsan": zsComponent
+                }
+            });
+        </script>
+    </body>
+</html>
