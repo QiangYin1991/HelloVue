@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Component.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+    </head>
+    <body>
+        <h1>Component</h1>
+        <hr>
+        <div id="app">
+            <zhangsan></zhangsan>
+            <lisi></lisi>
+        </div>
+        <script type="text/javascript">
+            Vue.component('zhangsan', {
+                template: `
+                    <div style="color:red">我是组件zhangsan</div>
+                `
+            });
+            
+            var app = new Vue({
+                el: '#app',
+                components: {
+                    "lisi":{
+                        template: `
+                            <div style="color:red">我是局部组件lisi</div>
+                        `
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
