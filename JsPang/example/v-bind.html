@@ -12,13 +12,44 @@
         <div id="app">
             <a :href="webUrl" target="_blank">链接1</a>
             <a :href="webUrl2" target="_self">链接2</a>
+            <hr>
+            <div :class="className">1、绑定Class</div>
+            <div :class="{classA:isOk}">2、绑定Class中的判断</div>
+            <div :class="[classA,classB]">3、绑定Class中的数组</div>
+            <div :class="isOk?classA:classB">4、绑定Class中的三元运算符</div>
+            <hr>
+            <div>
+                <input type="checkbox" id="isOk" v-model="isOk">
+                <label for="isOk">isOk={{isOk}}</label>
+            </div>
+            <hr>
+            <div :style="{color:red, fontSize:font}">5、绑定Style</div>
+            <div :style="styleObj">6、对象绑定Style</div>
         </div>
+        <style>
+            .classA{
+                color: red;
+            }
+            .classB{
+                font-size: 150%;
+            }
+        </style>
         <script type="text/javascript">
             var app = new Vue({
                 el: '#app',
                 data: {
-                    webUrl:"http://www.baidu.com",
-                    webUrl2:"http://tv.sohu.com"
+                    webUrl:'http://www.baidu.com',
+                    webUrl2:'http://tv.sohu.com',
+                    className: 'classA',
+                    isOk:false,
+                    classA: 'classA',
+                    classB: 'classB',
+                    red:'red',
+                    font:'20px',
+                    styleObj:{
+                        color: 'red',
+                        fontSize: '30px'
+                    }
                 }
             });
         </script>
