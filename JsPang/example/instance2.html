@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instance.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>实例事件</h1>
+        <hr>
+        <div id="app">
+            {{num}}
+            <p><button @click="add">ADD</button></p>
+        </div>
+        <p><button onclick="reduce()">Reduce</button></p>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    num: 0
+                },
+                methods:{
+                    add: function(){
+                        this.num++;
+                    }
+                }
+            });
+            
+            app.$on('reduce', function(){
+                this.num--;
+            });
+
+            function reduce() {
+                app.$emit('reduce');
+            }
+        </script>
+    </body>
+</html>
