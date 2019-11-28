@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instance.html</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script type="text/javascript" src="../assets/js/vue.min.js"></script>
+        <script type="text/javascript" src="../assets/js/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>实例方法</h1>
+        <hr>
+        <div id="app">{{message}}</div>
+        <script type="text/javascript">
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    message: 'hello world!'
+                },
+                mounted: function (){
+                    $("#app").html('我是Jquery!');
+                },
+                methods:{
+                    add: function(){
+                        console.log('调用了构造器内部add方法');
+                    }
+                }
+            });
+            app.add();
+        </script>
+    </body>
+</html>
